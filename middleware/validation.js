@@ -74,7 +74,7 @@ const validateArticleBody = celebrate({
 
 const validateObjectId = celebrate({
   params: Joi.object().keys({
-    _id: Joi.string()
+    articleId: Joi.string()
       .required()
       .custom((value, helpers) => {
         if (ObjectId.isValid(value)) {

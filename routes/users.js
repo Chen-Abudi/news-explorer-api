@@ -1,10 +1,8 @@
 const express = require('express');
 const { getCurrentUser } = require('../controllers/usersController');
 
-const { validateObjectId } = require('../middleware/validation');
-
 const usersRouter = express.Router();
 
-usersRouter.get('/me', validateObjectId, getCurrentUser);
+usersRouter.get('/me', getCurrentUser);
 
 module.exports = usersRouter;

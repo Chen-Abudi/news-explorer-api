@@ -47,12 +47,14 @@ const deleteArticle = (req, res, next) => {
 
   Article.findById(articleId)
     .orFail(new NotFoundError(ERROR_MESSAGE.ARTICLE_NOT_FOUND))
-    .then((article) => {
+    .select('+owner')
+    .then(async (article) => {
       const { owner } = article;
-      if (owner != userId) {
-        return next(new ForbiddenError(ERROR_MESSAGE.FORBIDDEN));
+      if (userId == owner) {
+        const data = await Article.findByIdAndRemove(articleId);
+        return res.send(data);
       }
-      return Article.findByIdAndRemove(articleId).then(() => res.send(article));
+      next(new ForbiddenError(ERROR_MESSAGE.FORBIDDEN));
     })
     .catch(next);
 };

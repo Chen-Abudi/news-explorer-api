@@ -13,10 +13,12 @@ const errorHandler = require('./middleware/errorHandler');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const { apiLimiter } = require('./utils/rateLimit');
-const { DB_ADDRESS } = require('./utils/config');
+const {
+  DB_ADDRESS = 'mongodb://localhost:27017/news-explorer-db',
+  PORT = 3000,
+} = require('./utils/config');
 
 const app = express();
-const { PORT = 3000 } = process.env;
 
 mongoose.connect(DB_ADDRESS);
 

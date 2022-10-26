@@ -16,10 +16,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Sorry,Email is required'],
       unique: true,
-      // validate: {
-      //   validator: (email) => validator.isEmail(email),
-      //   message: 'Sorry, it is not a valid email',
-      // },
+      validate: {
+        validator: (email) => validator.isEmail(email),
+        message: 'Sorry, it is not a valid email',
+      },
     },
     password: {
       // the requirements for every user password field are described below:

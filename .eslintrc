@@ -12,6 +12,7 @@
     "eqeqeq": "off",
     "func-names": "off",
     "no-shadow": "off",
+    "consistent-return": "off",
     "no-unused-vars": [
       "error",
       {
