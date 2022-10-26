@@ -38,4 +38,4 @@ It was created with Express and MongoDB to create, store, read, update, and remo
 
 ## _The project is evolving, more details soon_
 
-## Link to RESTful API :
+## [Link to RESTful API](api.chen23-news-explorer.students.nomoredomainssbs.ru)
