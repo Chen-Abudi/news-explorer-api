@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const validatorURL = require('../utils/validator');
+const validator = require('validator');
 
 const articleSchema = new mongoose.Schema({
   keyword: {
@@ -25,18 +25,20 @@ const articleSchema = new mongoose.Schema({
   link: {
     type: String,
     required: true,
-    // validate url
     validate: {
-      validator: (v) => validatorURL(v),
+      validator(v) {
+        return validator.isURL(v);
+      },
       message: 'Please enter a valid URL',
     },
   },
   image: {
     type: String,
     required: true,
-    // validate url
     validate: {
-      validator: (v) => validatorURL(v),
+      validator(v) {
+        return validator.isURL(v);
+      },
       message: 'Please enter a valid URL for image',
     },
   },

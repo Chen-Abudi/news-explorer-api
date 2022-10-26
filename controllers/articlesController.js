@@ -3,7 +3,6 @@ const Article = require('../models/article');
 const BadReqError = require('../errors/BadReqError');
 const ForbiddenError = require('../errors/ForbiddenError');
 const NotFoundError = require('../errors/NotFoundError');
-
 const { ERROR_MESSAGE } = require('../utils/constants');
 
 // GET
