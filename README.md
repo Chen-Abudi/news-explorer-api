@@ -34,7 +34,7 @@ It was created with Express and MongoDB to create, store, read, update, and remo
 | /users/me            |     GET      |              GETting user data |
 | /articles            |     GET      | GETting data from all articles |
 | /articles            |     POST     |         Creating a new article |
-| /articles/:articleId |    DELETE    |    DELETE an article by its id |
+| /articles/:\_id      |    DELETE    |    DELETE an article by its id |
 
 ## _The project is evolving, more details soon_
 
