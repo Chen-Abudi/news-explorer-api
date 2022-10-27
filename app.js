@@ -11,7 +11,7 @@ const errorHandler = require('./middleware/errorHandler');
 
 const { requestLogger, errorLogger } = require('./middleware/logger');
 
-const { apiLimiter } = require('./utils/rateLimit');
+const { apiLimiter } = require('./middleware/rateLimit');
 const {
   DB_ADDRESS = 'mongodb://localhost:27017/news-explorer-db',
   PORT = 3000,
