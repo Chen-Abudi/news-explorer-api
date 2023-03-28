@@ -24,6 +24,11 @@ It was created with Express and MongoDB to create, store, read, update, and remo
 - Celebrate / Joi
 - Validator
 - Postman for testing
+- **_`Vercel` Deployment_**
+- CI/CD
+- `Vercel Serverless technology`
+- REST API with CRUD Implementation
+- Git/GitHub
 
 ## API Routes :
 
@@ -38,4 +43,4 @@ It was created with Express and MongoDB to create, store, read, update, and remo
 
 ## _The project is evolving, more details soon_
 
-## [Link to RESTful API](https://api.chen23-news-explorer.students.nomoredomainssbs.ru/)
+## [Link to RESTful API](news-explorer-api-mu.vercel.app)
