@@ -43,4 +43,4 @@ It was created with Express and MongoDB to create, store, read, update, and remo
 
 ## _The project is evolving, more details soon_
 
-## [Link to RESTful API](news-explorer-api-mu.vercel.app)
+## [Link to RESTful API](https://news-explorer-api-mu.vercel.app/)
