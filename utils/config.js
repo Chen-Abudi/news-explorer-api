@@ -1,5 +1,5 @@
 const {
-  DB_ADDRESS = 'mongodb://localhost:27017/news-explorer-db',
+  DB_ADDRESS = 'mongodb+srv://cheezumcali23:KzaAgFhfAXXSiltO@news-explorer.nbhsglf.mongodb.net/?retryWrites=true&w=majority',
   NODE_ENV,
   JWT_SECRET = 'super-dev-secret',
   PORT = 3000,

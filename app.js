@@ -9,17 +9,12 @@ const bodyParser = require('body-parser');
 const router = require('./routes/index');
 const errorHandler = require('./middleware/errorHandler');
 
-const { requestLogger, errorLogger } = require('./middleware/logger');
+// const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const { apiLimiter } = require('./middleware/rateLimit');
-const {
-  DB_ADDRESS = 'mongodb://localhost:27017/news-explorer-db',
-  PORT = 3000,
-} = require('./utils/config');
+const { DB_ADDRESS, PORT } = require('./utils/config');
 
 const app = express();
-
-mongoose.connect(DB_ADDRESS);
 
 app.use(cors());
 app.options('*', cors());
@@ -31,7 +26,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(requestLogger);
+// app.use(requestLogger);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -41,10 +36,18 @@ app.get('/crash-test', () => {
 
 app.use(router);
 
-app.use(errorLogger);
+// app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`App listening at port ${PORT}`);
-});
+mongoose
+  .connect(DB_ADDRESS)
+  .then(() => {
+    console.log('MongoDB cnnected');
+    app.listen(PORT, () => {
+      console.log(`App listening at port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
