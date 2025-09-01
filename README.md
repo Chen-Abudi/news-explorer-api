@@ -241,4 +241,4 @@ This project is licensed under the ISC License.
 
 ---
 
-[**Live API:**](https://news-explorer-api-mu.vercel.app/)
+[**Live API**](https://news-explorer-api-mu.vercel.app/)
