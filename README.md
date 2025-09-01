@@ -2,6 +2,10 @@
 
 A secure RESTful API backend for the News Explorer application, built with Node.js, Express, and MongoDB. This service provides user authentication and article management functionality with comprehensive security measures.
 
+---
+
+[**Live API**](https://news-explorer-api-mu.vercel.app/)
+
 ## Table of Contents
 
 - [News Explorer API](#news-explorer-api)
@@ -238,7 +242,3 @@ The application is deployed on Vercel using serverless functions:
 ## License
 
 This project is licensed under the ISC License.
-
----
-
-[**Live API**](https://news-explorer-api-mu.vercel.app/)
