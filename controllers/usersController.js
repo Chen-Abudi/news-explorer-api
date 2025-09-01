@@ -44,7 +44,7 @@ const createUser = (req, res, next) => {
         name,
         email,
         password: hash,
-      })
+      }),
     )
     .then((data) => {
       const { password, ...user } = data._doc;

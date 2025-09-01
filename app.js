@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const winston = require('winston');
 
 const bodyParser = require('body-parser');
 const router = require('./routes/index');
@@ -13,6 +14,14 @@ const errorHandler = require('./middleware/errorHandler');
 
 const { apiLimiter } = require('./middleware/rateLimit');
 const { DB_ADDRESS, PORT } = require('./utils/config');
+
+const logger = winston.createLogger({
+  level: 'info',
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: 'combined.log' }),
+  ],
+});
 
 const app = express();
 
@@ -43,11 +52,23 @@ app.use(errorHandler);
 mongoose
   .connect(DB_ADDRESS)
   .then(() => {
-    console.log('MongoDB cnnected');
+    logger.info('MongoDB connected');
     app.listen(PORT, () => {
-      console.log(`App listening at port ${PORT}`);
+      logger.info(`App listening at port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.log(err);
+    logger.error(err);
   });
+
+// mongoose
+//   .connect(DB_ADDRESS)
+//   .then(() => {
+//     console.log('MongoDB connected');
+//     app.listen(PORT, () => {
+//       console.log(`App listening at port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
