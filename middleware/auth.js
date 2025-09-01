@@ -21,7 +21,7 @@ const auth = (req, res, next) => {
     return next(new UnauthorizeError(ERROR_MESSAGE.UNAUTHORIZED));
   }
 
-  req.user = payload; // payload assigned to request object
+  req.user = payload;
 
   return next();
 };

@@ -60,15 +60,3 @@ mongoose
   .catch((err) => {
     logger.error(err);
   });
-
-// mongoose
-//   .connect(DB_ADDRESS)
-//   .then(() => {
-//     console.log('MongoDB connected');
-//     app.listen(PORT, () => {
-//       console.log(`App listening at port ${PORT}`);
-//     });
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });

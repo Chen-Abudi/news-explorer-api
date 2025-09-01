@@ -5,14 +5,12 @@ const validator = require('validator');
 const userSchema = new mongoose.Schema(
   {
     name: {
-      // the requirements for every user name field are described below:
       type: String,
       required: [true, 'Enter your name please'],
       minlength: [2, 'Please lengthen this text to 2 characters or more'],
       maxlength: [30, 'Please lengthen this text to 30 characters or less'],
     },
     email: {
-      // the requirements for every user email field are described below:
       type: String,
       required: [true, 'Sorry,Email is required'],
       unique: true,
@@ -22,18 +20,17 @@ const userSchema = new mongoose.Schema(
       },
     },
     password: {
-      // the requirements for every user password field are described below:
       type: String,
       required: [true, 'Password is required'],
       select: false,
     },
   },
-  { versionKey: false },
+  { versionKey: false }
 );
 
 userSchema.statics.findUserByCredentials = function findUserByCredentials(
   email,
-  password,
+  password
 ) {
   return this.findOne({ email })
     .select('+password')
